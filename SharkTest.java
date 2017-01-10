@@ -4,11 +4,13 @@ import org.junit.*;
 public class SharkTest{
   Shark shark;
   Surfer dinner;
+  Swimmer snack;
 
   @Before 
   public void before() {
     shark = new Shark("Jaws");
     dinner = new Surfer();
+    snack = new Swimmer();
   }
 
   @Test
@@ -28,19 +30,9 @@ public class SharkTest{
   }
 
   @Test
-  public void canGetFull(){
-    for(int i = 0; i < 10; i++){
-      shark.eat(dinner);
-    }
-    assertEquals(5, shark.foodCount());
-  }
-
-  @Test
-  public void getsFullAfter5Fish(){
-    for(int i = 0; i<5; i++){
-      shark.eat(dinner);
-    }
-    assertEquals(5, shark.foodCount());
+  public void canEatSwimmer(){
+    shark.eat(snack);
+    assertEquals(1, shark.foodCount());
   }
 
   @Test
